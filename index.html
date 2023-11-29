@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="resources/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/stylesheet.css" rel="stylesheet">
+
+	<title>Supplementary Website</title>
+</head>
+<body>
+
+		<section class="jumbotron text-center pb-2">
+			<div class="container">
+				<h1 class="jumbotron-heading">Promptable Game Models: Text-Guided Game Simulation via Masked Diffusion Models</h1>
+				<h4>ACM Transactions on Graphics</h4>
+
+				<h5 class="font-italic pt-4" style="font-weight: normal">
+					<a href="https://www.willimenapace.com/">Willi Menapace</a><sup>☨</sup>,
+					<a href="https://github.com/AliaksandrSiarohin">Aliaksandr Siarohin</a>,
+					<a href="https://stelat.eu/">Stéphane Lathuilière</a>,
+					<a href="https://optas.github.io/">Panos Achlioptas</a>,</br>
+					<a href="https://people.mpi-inf.mpg.de/~golyanik/">Vladislav Golyanik</a>,
+					<a href="http://www.stulyakov.com/">Sergey Tulyakov</a>,
+					<a href="http://elisaricci.eu/">Elisa Ricci</a>
+				</h5>
+
+				<p class="mt-3"><sup>☨</sup> Work performed while interning at Snap Inc.</p>
+
+			</div>
+		</section>
+
+
+
+		<div class="container-md">
+
+			<div class="row pt-1 justify-content-sm-center">
+				 
+				<a class="sm-1 mx-1 btn btn-primary mt-2" href="index.html" role="button">Overview</a>
+				<a class="sm-1 mx-1 btn btn-primary mt-2" href="dataset.html" role="button">Dataset</a>
+				<div class="btn-group">
+					<a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Animation Model</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					    <a class="dropdown-item" href="action_conditioned_video_prediction.html" role="button">Action-Conditioned Video Prediction</a>
+						<a class="dropdown-item" href="video_completion.html" role="button">Video Completion</a>
+						<a class="dropdown-item" href="unconditional_generation.html" role="button">Unconditional Generation</a>
+						<a class="dropdown-item" href="bernoulli.html" role="button">Random Conditioning</a>
+						<a class="dropdown-item" href="baselines_animation.html" role="button">Baselines</a>
+						<a class="dropdown-item" href="ablation_animation.html" role="button">Ablation</a>
+				    </div>
+				</div>
+				<div class="btn-group">
+				    <a class="sm-1 mx-1 btn btn-primary mt-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Synthesis Model</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+					    <a class="dropdown-item" href="camera_manipulation.html" role="button">Camera Manipulation</a>
+						<a class="dropdown-item" href="style_manipulation.html" role="button">Style Manipulation</a>
+						<a class="dropdown-item" href="baselines_synthesis.html" role="button">Baselines</a>
+						<a class="dropdown-item" href="ablation_synthesis.html" role="button">Ablation</a>
+				    </div>
+				</div>
+				<a class="sm-1 mx-1 btn btn-primary mt-2" href="https://arxiv.org/abs/2303.13472" role="button">Paper</a>
+				<a class="sm-1 mx-1 btn btn-primary mt-2" href="https://github.com/snap-research/promptable-game-models/" role="button">GitHub</a>
+
+			</div>	
+
+		</div>
+
+
+		<div class="container">
+
+
+			<hr class="mt-5">
+
+
+			
+			<h2 class="pt-4">Promptable Game Models (PGMs)</h2>
+
+			<p class="lead">We propose Promptable Game Models, a framework for controllable video generation and editing. Our PGM is trained to respond to prompts, i.e. to generate videos satisfying a set of user constraints expressed as textual actions or desired states of the environment. Our learned model can synthesize scenes with explicit control on pose of articulated objects, their position, camera and style.</p>
+
+
+
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+				<!-- Grid column -->
+				<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/pose_camera_style.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+			<h3 class="pt-5">Playing with PGMs</h3>
+
+			<p class="lead pt-2">To answer prompts, our model learns a representation of physics and of the game logic. The user can generate results by issuing actions. To unlock a high degree of expressiveness and enable fine-grained action control, we make use of text actions.</p>
+
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/action_conditioned_video_prediction/minecraft/006.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/action_conditioned_video_prediction/tennis/040.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+			</div>
+			<!-- Grid row -->
+
+			<h3 class="pt-4">Director's mode with PGMs</h3>
+
+			<p class="lead">The knowledge about physics and the game logic enables our model to perform complex reasoning on the scene and enables the "director's mode" where high-level constraints or objectives can be specified in the form of prompts, and the model generates sequences containing complex action sequences that satisfy those constraints.</p>
+			<p class="lead">As a simple example, our model can be given an initial and final state and generate all the trajectory in the middle:</p>
+
+
+			<!-- Grid row -->
+			<div class="row pt-5 nopadding">
+
+
+
+			</div>
+			<!-- Grid row -->
+
+			<!-- Grid row -->
+			<div class="row pt-5 nopadding">
+
+				<!-- Grid column -->
+				<div class="col-sm-5 col-md-5 col-xl-5 col-lg-5 p-0 text-center">
+					<h4>Initial state</h4>
+					<img class="video-fluid w-100 flex" src="video_sequences/overview/minecraft_video_completion_1_1.png"/>
+				</div>
+				<!-- Grid column -->
+				<div class="col-sm-2 col-md-2 col-xl-2 col-lg-2 p-0 text-center">
+				
+				</div>
+				<!-- Grid column -->
+				<div class="col-sm-5 col-md-5 col-xl-5 col-lg-5 p-0 text-center">
+					<h4>Final state</h4>
+					<img class="video-fluid w-100 flex" src="video_sequences/overview/minecraft_video_completion_1_2.png"/>
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 p-0 text-center">
+					<h4 class="pt-4">Generated Videos</h5>
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/minecraft_video_completion_1_with_path.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+			<p class="lead pt-5">If a further conditioning action is given in the middle of the video, the model generates a completion satisfying also the additional constraint and changes the path of the player accordingly:</p>
+
+			<!-- Grid row -->
+			<div class="row pt-5 nopadding">
+
+				<!-- Grid column -->
+				<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/minecraft_video_completion_gold_pillar_with_path.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+			<!-- Grid row -->
+			<div class="row pt-5 nopadding">
+
+				<!-- Grid column -->
+				<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/minecraft_video_completion_stairs_with_path.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+
+
+			</div>
+			<!-- Grid row -->
+			<!-- Grid row -->
+			<div class="row pt-5 nopadding">
+				
+				<!-- Grid column -->
+				<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/minecraft_video_completion_initial_blue_with_path.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row -->
+
+			<p class="lead pt-5">More conditioning actions can be inserted at different times to generate multiple waypoints:</p>
+
+			<!-- Grid row -->
+			<div class="row pt-5 nopadding">
+				
+				<!-- Grid column -->
+				<div class="col-sm-12 col-md-12 col-xl-12 col-lg-12 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/minecraft_video_completion_stairs_gold_with_path.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+
+
+			</div>
+			<!-- Grid row -->
+
+
+			<p class="lead pt-5">The model can be asked to perform complex reasoning such as which actions to take to win a point. To do so, the user can condition the top player with the action that he should "not catch the ball" at the end of the sequence:</p>
+
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<h5>Original Video</h5>
+					<h5>= Bottom player loses</h5>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<h5>1/2 Original video</h5>
+					<h5>+ "The [top] player does not catch the ball"</h5>
+					<h5>= Bottom player wins</h5>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/tennis_loser.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/tennis_winner.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/tennis_loser_2.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/overview/tennis_winner_2.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+			</div>
+			<!-- Grid row -->
+
+
+			<h3 class="pt-4">PGM Datasets</h3>
+
+			<p class="lead">To enable learning promptable models of games, we build two dataset with camera calibration, 3D player poses, 3D ball localization and fine-grained text actions for each player and each frame:</p>
+
+			<!-- Grid row -->
+			<div class="row pt-3 nopadding">
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/dataset/tennis/090_all.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+				<!-- Grid column -->
+				<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 p-0 text-center">
+
+					<video class="video-fluid w-100 flex" controls autoplay loop muted>
+						<source src="video_sequences/dataset/minecraft/020_all.mp4" type="video/mp4" />
+					</video>
+
+				</div>
+				<!-- Grid column -->
+			</div>
+			<!-- Grid row -->
+			
+
+
+
+
+
+		</div>
+
+		<!-- Footer -->
+		<section class="jumbotron text-center py-7 mt-5 mb-0">
+		</section>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="resources/jquery-3.4.1.slim.min.js"></script>
+		<script src="resources/popper.min.js"></script>
+		<script src="resources/bootstrap.min.js"></script>
+
+	</body>
+	</html>
