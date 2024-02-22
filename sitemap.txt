@@ -1,0 +1,13 @@
+https://snap-research.github.io/promptable-game-models/index.html
+https://snap-research.github.io/promptable-game-models/ablation_animation.html
+https://snap-research.github.io/promptable-game-models/ablation_synthesis.html
+https://snap-research.github.io/promptable-game-models/action_conditioned_video_prediction.html
+https://snap-research.github.io/promptable-game-models/baselines_animation.html
+https://snap-research.github.io/promptable-game-models/baselines_synthesis.html
+https://snap-research.github.io/promptable-game-models/bernoulli.html
+https://snap-research.github.io/promptable-game-models/camera_manipulation.html
+https://snap-research.github.io/promptable-game-models/dataset.html
+https://snap-research.github.io/promptable-game-models/long_generation.html
+https://snap-research.github.io/promptable-game-models/style_manipulation.html
+https://snap-research.github.io/promptable-game-models/unconditional_generation.html
+https://snap-research.github.io/promptable-game-models/video_completion.html
